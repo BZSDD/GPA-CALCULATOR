@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>โปรแกรมคำนวณ GPA 5/1 เริ่สๆ</title>
+</head>
+
+<body>
+
+<h2>โปรแกรมคำนวณ GPA ม.5/1 โรงเรียนบุณฑริกวิทยาคาร เริ่สๆ ของนายศิวกร<h2>
+
+<table border="1">
+<tr>
+<th>วิชา</th>
+<th>หน่วยกิต</th>
+<th>เกรด</th>
+</tr>
+
+<tr><td>คณิตพื้นฐาน</td><td>1</td><td><input id="g1"></td></tr>
+<tr><td>ฟิสิกส์</td><td>1.5</td><td><input id="g2"></td></tr>
+<tr><td>คณิตเพิ่มเติม</td><td>1.5</td><td><input id="g3"></td></tr>
+<tr><td>คอมพิวเตอร์</td><td>0.5</td><td><input id="g4"></td></tr>
+<tr><td>ประวัติศาสตร์</td><td>0.5</td><td><input id="g5"></td></tr>
+<tr><td>IS</td><td>1</td><td><input id="g6"></td></tr>
+<tr><td>ภาษาอังกฤษ</td><td>1</td><td><input id="g7"></td></tr>
+<tr><td>อังกฤษเพิ่มเติม</td><td>1</td><td><input id="g8"></td></tr>
+<tr><td>เคมี</td><td>1.5</td><td><input id="g9"></td></tr>
+<tr><td>การงาน</td><td>0.5</td><td><input id="g10"></td></tr>
+<tr><td>แนะแนว</td><td>0.5</td><td><input id="g11"></td></tr>
+<tr><td>ชีววิทยา</td><td>1</td><td><input id="g12"></td></tr>
+<tr><td>ภาษาไทย</td><td>1</td><td><input id="g13"></td></tr>
+<tr><td>ดนตรีและนาฏศิลป์</td><td>0.5</td><td><input id="g14"></td></tr>
+<tr><td>สังคม</td><td>1</td><td><input id="g15"></td></tr>
+<tr><td>พละศึกษา</td><td>0.5</td><td><input id="g16"></td></tr>
+<tr><td>โลกดาราศาสตร์</td><td>1</td><td><input id="g17"></td></tr>
+
+</table>
+
+<br>
+<button onclick="calc()">คำนวณ GPA</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+function calc(){
+
+let credits=[1,1.5,1.5,0.5,0.5,1,1,1,1.5,0.5,0.5,1,1,0.5,1,0.5,1]
+
+let totalPoints=0
+let totalCredits=0
+
+for(let i=1;i<=17;i++){
+
+let grade=document.getElementById("g"+i).value
+
+if(grade!=""){
+totalPoints+=grade*credits[i-1]
+totalCredits+=credits[i-1]
+}
+
+}
+
+let gpa=totalPoints/totalCredits
+
+document.getElementById("result").innerHTML="GPA = "+gpa.toFixed(2)
+
+}
+
+</script>
+
+</body>
+</html>
